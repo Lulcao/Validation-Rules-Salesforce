@@ -1,0 +1,20 @@
+NOT(
+ OR(
+  LEN(CPF__c) = 0,
+  AND(
+   LEN(CPF__c) = 14,
+   CONTAINS("0123456789", LEFT(CPF__c, 1)),
+   CONTAINS("0123456789", MID(CPF__c, 2, 1)),
+   CONTAINS("0123456789", MID(CPF__c, 3, 1)),
+   MID(CPF__c, 4, 1) = ".",
+   CONTAINS("0123456789", MID(CPF__c, 5, 1)),
+   CONTAINS("0123456789", MID(CPF__c, 6, 1)),
+   CONTAINS("0123456789", MID(CPF__c, 7, 1)),
+   MID(CPF__c, 8, 1) = ".",
+   CONTAINS("0123456789", MID(CPF__c, 9, 1)),
+   CONTAINS("0123456789", MID(CPF__c, 10, 1)),
+   CONTAINS("0123456789", MID(CPF__c, 11, 1)),
+   MID(CPF__c, 12, 1) = "-",
+   CONTAINS("0123456789", MID(CPF__c, 13, 1)),
+   CONTAINS("0123456789", MID(CPF__c, 14, 1))
+)))
